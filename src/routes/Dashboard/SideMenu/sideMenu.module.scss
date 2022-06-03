@@ -1,0 +1,9 @@
+@use '/src/styles/constants/colors';
+
+.sideMenu {
+  display: inline-block;
+  width: 25%;
+  height: 100%;
+  background-color: colors.$BLACK;
+  border-radius: 8px 8px 0 0;
+}
