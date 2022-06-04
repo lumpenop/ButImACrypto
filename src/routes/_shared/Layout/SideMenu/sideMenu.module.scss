@@ -2,8 +2,12 @@
 
 .sideMenu {
   display: inline-block;
-  width: 25%;
+  width: 30%;
   height: 100%;
   background-color: colors.$BLACK;
   border-radius: 8px 8px 0 0;
+
+  .coinList {
+    color: colors.$WHITE;
+  }
 }
