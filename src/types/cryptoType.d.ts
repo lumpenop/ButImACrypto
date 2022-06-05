@@ -1,10 +1,14 @@
 export interface ICoin {
-  market: string
-  korean_name: string
-  english_name: string
-}
-
-export interface ICoinPrice {
-  market: string
-  trade_price: string
+  rank: number
+  name: string
+  symbol: string
+  quotes: {
+    KRW: {
+      price: number
+      market_cap: number
+      volume_24h: number
+      percent_change_24h: number
+      percent_change_7d: number
+    }
+  }
 }

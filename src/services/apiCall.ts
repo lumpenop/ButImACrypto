@@ -1,12 +1,11 @@
 import axios from 'axios'
 import { ICoin } from 'types/cryptoType'
 
-const ALL_LIST_URL = 'https://api.upbit.com/v1/market/all?isDetails=false'
-const GET_PRICE_URL = 'https://api.upbit.com/v1/ticker?markets='
+const ALL_LIST_URL = 'https://api.coinpaprika.com/v1/tickers?quotes=KRW'
 
 const options = { headers: { Accept: 'application/json' } }
 
-export const getAllCoinList = () => {
+export const getAllCoinInfo = () => {
   return axios
     .get(ALL_LIST_URL, {
       params: {
@@ -16,7 +15,8 @@ export const getAllCoinList = () => {
     })
     .then(async (res) => {
       const allCoinList = await res.data
-      return allCoinList
+
+      return allCoinList.slice(0, 40)
       // const krwCoinList = allCoinList.filter((item: ICoin) => item.market.includes('KRW'))
       // return krwCoinList.slice(0, 20)
     })
@@ -25,18 +25,5 @@ export const getAllCoinList = () => {
         // eslint-disable-next-line no-console
         console.log(`%c Request ${thrown.message}`, 'background: #bd71ff; color:#eaeaea')
       }
-    })
-}
-
-export const getCoinPrice = (item: string) => {
-  return axios
-    .get(GET_PRICE_URL + item, {
-      params: {
-        options,
-      },
-      timeout: 10000,
-    })
-    .then((res) => {
-      return res
     })
 }
