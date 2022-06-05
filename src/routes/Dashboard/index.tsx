@@ -1,7 +1,7 @@
 import styles from './dashboard.module.scss'
 import Chart from '../Chart'
 import View from './View'
-import ChartInfo from './ChartInfo'
+import ChartInfo from '../Chart/ChartInfo'
 
 const Dashboard = () => {
   return (
