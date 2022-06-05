@@ -1,9 +1,20 @@
+import { useState } from 'react'
 import styles from './lnb.module.scss'
+
+import LnbMenuList from './LnbMenuList'
+
+const lnbMenu = ['Dashboard', 'MyStock', 'Analysis', 'Market', 'Portfolio', 'Settings']
 
 const LNB = () => {
   return (
     <aside className={styles.lnbContainer}>
-      <nav className={styles.lnb} />
+      <nav className={styles.lnb}>
+        <ul>
+          {lnbMenu.map((item, index) => {
+            return <LnbMenuList key={item} item={item} value={index} />
+          })}
+        </ul>
+      </nav>
     </aside>
   )
 }
