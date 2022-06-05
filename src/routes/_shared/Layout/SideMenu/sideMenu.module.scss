@@ -1,13 +1,42 @@
 @use '/src/styles/constants/colors';
 
 .sideMenu {
-  display: inline-block;
-  width: 30%;
+  width: 50%;
   height: 100%;
-  background-color: colors.$BLACK;
-  border-radius: 8px 8px 0 0;
 
-  .coinList {
-    color: colors.$WHITE;
+  .cardList {
+    height: 30%;
+    margin-bottom: 16px;
+    background-color: colors.$TASKS_TITLE;
+    border-radius: 12px 12px 0;
+  }
+
+  .coinListView {
+    height: 70%;
+    overflow-y: scroll;
+    background-color: colors.$DASHBOARD_WHITE;
+    border-radius: 12px 0 0;
+
+    .coinListContainer {
+      padding: 20px 12px;
+
+      .coinList {
+        padding: 8px 0;
+        color: colors.$GRAY3;
+
+        .coinInfo {
+          display: flex;
+          justify-content: space-around;
+
+          .rises {
+            color: colors.$RED;
+          }
+
+          .fall {
+            color: colors.$APP_BACK_BLUE;
+          }
+        }
+      }
+    }
   }
 }

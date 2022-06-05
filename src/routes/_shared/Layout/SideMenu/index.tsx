@@ -1,61 +1,34 @@
 import styles from './sideMenu.module.scss'
-import { getAllCoinList, getCoinPrice } from 'services/apiCall'
+import { getAllCoinInfo } from 'services/apiCall'
 import { useQuery } from 'react-query'
-import { ICoin, ICoinPrice } from 'types/cryptoType'
-import { useState, useEffect } from 'react'
-import { AxiosResponse } from 'axios'
-
-const timer = (ms: number) =>
-  new Promise((res) => {
-    setTimeout(() => {
-      console.log('hi')
-    }, ms)
-  })
+import { ICoin } from 'types/cryptoType'
+import { useState, useMemo, useEffect } from 'react'
+import { cx } from 'styles'
+import BigNumber from 'bignumber.js'
+import CoinListElement from './CoinListElement'
 
 const SideMenu = () => {
   const [coinList, setCoinList] = useState<ICoin[]>([])
-  useEffect(() => {
-    coin()
-  }, [])
-  const coin = async () => {
-    setCoinList(await getAllCoinList())
-  }
 
   const { data, isLoading } = useQuery(
     ['coinList', coinList],
     async () => {
-      if (coinList.length === 0) return null
-      const arr: ICoinPrice[] = []
-      coinList.slice(0, 10).forEach(async (item) => {
-        const coinPrice = await getCoinPrice(item.market)
-        arr.push(coinPrice.data[0])
-      })
-      return arr
+      const result = await getAllCoinInfo()
+      setCoinList(result)
+      return result
     },
     {
+      keepPreviousData: true,
+      cacheTime: 0,
       refetchOnWindowFocus: false,
-      staleTime: 1000 * 60 * 5,
+      refetchInterval: 5000,
     }
   )
-  useEffect(() => {
-    if (data) console.log(data[0])
-  }, [data])
-  if (isLoading || !data) return null
 
   return (
     <aside className={styles.sideMenu}>
-      <ul>
-        {data.map((item: ICoinPrice) => {
-          console.log(item.market)
-          return (
-            <li key={item.market} className={styles.coinList}>
-              {item.market}
-              {item.trade_price}
-            </li>
-          )
-        })}
-        hi
-      </ul>
+      <div className={styles.cardList}>hj</div>
+      <div className={styles.coinListView}>{!isLoading && <CoinListElement coinList={coinList} />}</div>
     </aside>
   )
 }
