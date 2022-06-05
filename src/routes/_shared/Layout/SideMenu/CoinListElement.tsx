@@ -12,9 +12,11 @@ const coinListElement = ({ coinList }: Props) => {
   return (
     <ul className={styles.coinListContainer}>
       <li className={styles.coinList}>
-        <span className={styles.coinName}>dsa</span>
-        <span className={styles.coinPrice}>sad</span>
-        <span className={styles.coinChange}>sads</span>
+        <div className={styles.coinInfo}>
+          <span className={styles.coinName}>dsa</span>
+          <span className={styles.coinPrice}>sad</span>
+          <span className={styles.coinChange}>sads</span>
+        </div>
       </li>
       {coinList?.map((item: ICoin) => {
         const changeData = new BigNumber(item.quotes.KRW.percent_change_24h).toNumber()

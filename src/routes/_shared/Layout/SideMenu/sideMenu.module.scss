@@ -3,6 +3,7 @@
 .sideMenu {
   width: 50%;
   height: 100%;
+  padding-bottom: 46px;
 
   .cardList {
     height: 30%;
@@ -17,29 +18,15 @@
     background-color: colors.$DASHBOARD_WHITE;
     border-radius: 12px 0 0;
 
-    .coinListTitle {
-      display: flex;
-      justify-content: space-around;
-      padding: 20px 12px;
-
-      h4:first-child {
-        width: 130px;
-      }
-
-      h4:nth-child(2) {
-        width: 100px;
-      }
-
-      h4:last-child {
-        width: 50px;
-      }
-    }
-
     .coinListContainer {
-      padding: 0 12px;
+      padding: 16px 12px 0;
 
       .coinList {
         color: colors.$GRAY3;
+
+        &:first-child {
+          padding-bottom: 8px;
+        }
 
         .coinInfo {
           display: flex;
@@ -51,7 +38,7 @@
           }
 
           .coinName {
-            width: 130px;
+            width: 140px;
             padding-right: 4px;
           }
 
