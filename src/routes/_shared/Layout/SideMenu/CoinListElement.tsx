@@ -11,6 +11,11 @@ interface Props {
 const coinListElement = ({ coinList }: Props) => {
   return (
     <ul className={styles.coinListContainer}>
+      <li className={styles.coinList}>
+        <span className={styles.coinName}>dsa</span>
+        <span className={styles.coinPrice}>sad</span>
+        <span className={styles.coinChange}>sads</span>
+      </li>
       {coinList?.map((item: ICoin) => {
         const changeData = new BigNumber(item.quotes.KRW.percent_change_24h).toNumber()
         let change = ''
@@ -19,17 +24,13 @@ const coinListElement = ({ coinList }: Props) => {
 
         return (
           <li key={item.name} className={styles.coinList}>
-            <ul className={styles.coinInfo}>
-              <li className={styles.coinName}>
-                <span>{item.name}</span>
-              </li>
-              <li className={cx(styles.coinPrice, change)}>
-                <span>{item.quotes.KRW.price.toFixed(2)}</span>
-              </li>
-              <li className={cx(styles.coinChange, change)}>
-                <span>{item.quotes.KRW.percent_change_24h.toFixed(2)}%</span>
-              </li>
-            </ul>
+            <div className={styles.coinInfo}>
+              <span className={styles.coinName}>{item.name}</span>
+
+              <span className={cx(styles.coinPrice, change)}>{item.quotes.KRW.price.toFixed(2)}</span>
+
+              <span className={cx(styles.coinChange, change)}>{item.quotes.KRW.percent_change_24h.toFixed(2)}%</span>
+            </div>
           </li>
         )
       })}

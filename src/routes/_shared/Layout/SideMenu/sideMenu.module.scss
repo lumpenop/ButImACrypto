@@ -17,16 +17,52 @@
     background-color: colors.$DASHBOARD_WHITE;
     border-radius: 12px 0 0;
 
-    .coinListContainer {
+    .coinListTitle {
+      display: flex;
+      justify-content: space-around;
       padding: 20px 12px;
 
+      h4:first-child {
+        width: 130px;
+      }
+
+      h4:nth-child(2) {
+        width: 100px;
+      }
+
+      h4:last-child {
+        width: 50px;
+      }
+    }
+
+    .coinListContainer {
+      padding: 0 12px;
+
       .coinList {
-        padding: 8px 0;
         color: colors.$GRAY3;
 
         .coinInfo {
           display: flex;
           justify-content: space-around;
+
+          span {
+            height: 34px;
+            line-height: 34px;
+          }
+
+          .coinName {
+            width: 130px;
+            padding-right: 4px;
+          }
+
+          .coinPrice {
+            width: 100px;
+            padding-right: 4px;
+          }
+
+          .coinChange {
+            width: 50px;
+          }
 
           .rises {
             color: colors.$RED;
