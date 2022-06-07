@@ -7,19 +7,13 @@ import { useQuery } from 'react-query'
 
 import { useEffect, useRef, useState } from 'react'
 
+import { Audio } from 'react-loader-spinner'
+
 interface ChartSize {
   chartWidth: number | undefined
   chartHeight: number | undefined
 }
 
-interface Acc {
-  x: Date
-  open: number
-  close: number
-  high: number
-  low: number
-}
-const prev = 0
 const CyrptoChart = () => {
   const chartBoxRef = useRef<HTMLDivElement>(null)
   const [chartBoxSize, setChartBoxSize] = useState<ChartSize>({ chartWidth: 0, chartHeight: 0 })
@@ -45,7 +39,6 @@ const CyrptoChart = () => {
     if (chartBoxRef === null) return
     const boxHeight = chartBoxRef.current?.offsetHeight
     const boxWidth = chartBoxRef.current?.offsetWidth
-    console.log(boxWidth)
     const chartHeight = boxHeight && boxHeight * 1.2
     const chartWidth = boxWidth && boxWidth * 1.2
     const boxSize = {
@@ -57,6 +50,11 @@ const CyrptoChart = () => {
   return (
     <div className={styles.chart} ref={chartBoxRef}>
       chart
+      {isLoading && (
+        <div className={styles.spinnerBox}>
+          <Audio width='50' height='50' color='#c8553d' aria-label='loading' />
+        </div>
+      )}
       {!isLoading && (
         <VictoryChart
           width={chartBoxSize?.chartWidth}
