@@ -23,14 +23,15 @@ const coinListElement = ({ coinList }: Props) => {
         </div>
       </li>
       {coinList?.map((item: ICoin) => {
-        const changeData = new BigNumber(item.quotes.KRW.percent_change_24h).toNumber()
+        const { KRW } = item.quotes
+        const changeData = new BigNumber(KRW.percent_change_24h).toNumber()
         return (
           <li key={item.name} className={styles.coinList}>
             <div className={styles.coinInfo}>
               <span className={styles.coinName}>{item.name}</span>
-              <span className={cx(styles.coinPrice, checkChange(changeData))}>{item.quotes.KRW.price.toFixed(2)}</span>
+              <span className={cx(styles.coinPrice, checkChange(changeData))}>{KRW.price.toFixed(2)}</span>
               <span className={cx(styles.coinChange, checkChange(changeData))}>
-                {item.quotes.KRW.percent_change_24h.toFixed(2)}%
+                {KRW.percent_change_24h.toFixed(2)}%
               </span>
             </div>
           </li>
