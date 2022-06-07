@@ -1,34 +1,36 @@
 import styles from './sideMenu.module.scss'
 import { getAllCoinInfo } from 'services/apiCall'
 import { useQuery } from 'react-query'
-import { ICoin } from 'types/cryptoType'
-import { useState, useMemo, useEffect } from 'react'
-import { cx } from 'styles'
-import BigNumber from 'bignumber.js'
+
 import CoinListElement from './CoinListElement'
 
-const SideMenu = () => {
-  const [coinList, setCoinList] = useState<ICoin[]>([])
+import cardFront from 'assets/imgs/cardFront.jpg'
+import cardBack from 'assets/imgs/cardBack.jpg'
 
+const SideMenu = () => {
   const { data, isLoading } = useQuery(
-    ['coinList', coinList],
+    ['coinList'],
     async () => {
       const result = await getAllCoinInfo()
-      setCoinList(result)
       return result
     },
     {
       keepPreviousData: true,
       cacheTime: 0,
       refetchOnWindowFocus: false,
-      refetchInterval: 5000,
+      refetchInterval: 10000,
     }
   )
 
   return (
     <aside className={styles.sideMenu}>
-      <div className={styles.cardList}>hj</div>
-      <div className={styles.coinListView}>{!isLoading && <CoinListElement coinList={coinList} />}</div>
+      <div className={styles.cardList}>
+        <div className={styles.cardBox}>
+          <img className={styles.cardFront} src={cardFront} alt='cardFront' />
+          <img className={styles.cardBack} src={cardBack} alt='cardBack' />
+        </div>
+      </div>
+      <div className={styles.coinListView}>{!isLoading && <CoinListElement coinList={data} />}</div>
     </aside>
   )
 }

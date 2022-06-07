@@ -8,8 +8,35 @@
   .cardList {
     height: 30%;
     margin-bottom: 16px;
-    background-color: colors.$TASKS_TITLE;
-    border-radius: 12px 12px 0;
+    overflow: hidden;
+    border-radius: 12px;
+
+    .cardBox {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: 0.4s;
+      transform-style: preserve-3d;
+
+      .cardFront,
+      .cardBack {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        object-fit: cover;
+      }
+
+      .cardBack {
+        transform: rotateX(180deg);
+      }
+    }
+
+    &:hover .cardBox {
+      transform: rotateX(180deg);
+    }
   }
 
   .coinListView {
