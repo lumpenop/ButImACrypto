@@ -3,9 +3,9 @@ import { cx } from 'styles'
 
 import LnbIcon from './LnbIcon'
 
-import { MouseEvent, useEffect } from 'react'
+import { MouseEvent } from 'react'
 
-import { selectedListState } from 'store/creepto'
+import { selectedLnbListState } from 'store/creepto'
 import { useRecoil } from 'hooks/state'
 
 interface Props {
@@ -14,7 +14,7 @@ interface Props {
 }
 
 const LnbMenuList = ({ item, value }: Props) => {
-  const [selectedList, setSelectedList] = useRecoil<string>(selectedListState)
+  const [selectedList, setSelectedList] = useRecoil<string>(selectedLnbListState)
 
   const menuListClick = (event: MouseEvent<HTMLButtonElement>) => {
     setSelectedList(event.currentTarget.value)
