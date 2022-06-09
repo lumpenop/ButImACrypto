@@ -12,3 +12,11 @@ export interface ICoin {
     }
   }
 }
+
+export interface IRefinedData {
+  name: string
+  coinPrice: number
+  coinPercentChange24h: number
+  coinMarketCap: number
+  coinVolume24h: number
+}
