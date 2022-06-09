@@ -4,6 +4,19 @@
   width: 100%;
   height: 140px;
   margin-bottom: 36px;
-  background-color: tomato;
+  background-color: colors.$WHITE;
   border-radius: 4px;
+
+  .coinPrice {
+    padding-right: 12px;
+    font-size: 24px;
+  }
+
+  .rises {
+    color: colors.$RED;
+  }
+
+  .fall {
+    color: colors.$APP_BACK_BLUE;
+  }
 }
