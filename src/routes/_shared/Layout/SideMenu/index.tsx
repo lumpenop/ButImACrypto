@@ -1,17 +1,25 @@
 import styles from './sideMenu.module.scss'
 import { getAllCoinInfo } from 'services/apiCall'
 import { useQuery } from 'react-query'
+import { useEffect } from 'react'
 
 import CoinListElement from './CoinListElement'
 
 import cardFront from 'assets/imgs/cardFront.jpg'
 import cardBack from 'assets/imgs/cardBack.jpg'
+import { useRecoil } from 'hooks/state'
+
+import { coinListState, selectedCoinState } from 'store/creepto'
+import { IRefinedData } from 'types/cryptoType'
 
 const SideMenu = () => {
+  const [, setCoinListData] = useRecoil(coinListState)
+  const [selectedCoin] = useRecoil(selectedCoinState)
+
   const { data, isLoading } = useQuery(
     ['coinList'],
     async () => {
-      const result = await getAllCoinInfo()
+      const result: IRefinedData[] = await getAllCoinInfo()
       return result
     },
     {
@@ -21,6 +29,9 @@ const SideMenu = () => {
       refetchInterval: 10000,
     }
   )
+  useEffect(() => {
+    data && setCoinListData(data[selectedCoin])
+  }, [selectedCoin, data])
 
   return (
     <aside className={styles.sideMenu}>

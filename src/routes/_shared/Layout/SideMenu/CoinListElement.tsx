@@ -1,13 +1,22 @@
 import styles from './sideMenu.module.scss'
-import { ICoin } from 'types/cryptoType'
-import BigNumber from 'bignumber.js'
+import { IRefinedData } from 'types/cryptoType'
 import { cx } from 'styles'
-import React from 'react'
+import React, { useEffect } from 'react'
+
+import { selectedCoinState } from 'store/creepto'
+
+import { useRecoil } from 'hooks/state'
 
 interface Props {
-  coinList: ICoin[]
+  coinList: IRefinedData[] | undefined
 }
-const coinListElement = ({ coinList }: Props) => {
+const CoinListElement = ({ coinList }: Props) => {
+  const [selectedCoin, setSelectedCoin] = useRecoil(selectedCoinState)
+
+  const coinListClicked = (idx: number) => {
+    setSelectedCoin(idx)
+  }
+
   const checkChange = (changeData: Number) => {
     if (changeData > 0) return styles.rises
     if (changeData < 0) return styles.fall
@@ -22,18 +31,16 @@ const coinListElement = ({ coinList }: Props) => {
           <span className={styles.coinChange}>sads</span>
         </div>
       </li>
-      {coinList?.map((item: ICoin) => {
-        const { KRW } = item.quotes
-        const changeData = new BigNumber(KRW.percent_change_24h).toNumber()
+      {coinList?.map((item: IRefinedData, idx) => {
         return (
           <li key={item.name} className={styles.coinList}>
-            <div className={styles.coinInfo}>
+            <button type='button' onClick={() => coinListClicked(idx)} className={styles.coinInfo}>
               <span className={styles.coinName}>{item.name}</span>
-              <span className={cx(styles.coinPrice, checkChange(changeData))}>{KRW.price.toFixed(2)}</span>
-              <span className={cx(styles.coinChange, checkChange(changeData))}>
-                {KRW.percent_change_24h.toFixed(2)}%
+              <span className={cx(styles.coinPrice, checkChange(item.coinPercentChange24h))}>{item.coinPrice}</span>
+              <span className={cx(styles.coinChange, checkChange(item.coinPercentChange24h))}>
+                {item.coinPercentChange24h}%
               </span>
-            </div>
+            </button>
           </li>
         )
       })}
@@ -41,4 +48,4 @@ const coinListElement = ({ coinList }: Props) => {
   )
 }
 
-export default React.memo(coinListElement)
+export default React.memo(CoinListElement)
