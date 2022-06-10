@@ -40,7 +40,7 @@
   }
 
   .coinListView {
-    height: 70%;
+    height: calc(100%);
     overflow-y: scroll;
     background-color: colors.$DASHBOARD_WHITE;
     border-radius: 12px 0 0;
@@ -50,6 +50,7 @@
 
       .coinList {
         color: colors.$GRAY3;
+        text-align: center;
 
         &:first-child {
           padding-bottom: 8px;
@@ -60,12 +61,13 @@
           justify-content: space-around;
 
           span {
+            align-items: center;
             height: 34px;
             line-height: 34px;
           }
 
           .coinName {
-            width: 140px;
+            width: 120px;
             padding-right: 4px;
           }
 
