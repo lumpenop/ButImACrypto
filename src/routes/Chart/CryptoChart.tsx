@@ -49,7 +49,7 @@ const CyrptoChart = () => {
   }
   return (
     <div className={styles.chart} ref={chartBoxRef}>
-      chart
+      BTC/ETH
       {isLoading && (
         <div className={styles.spinnerBox}>
           <Audio width='50' height='50' color='#c8553d' aria-label='loading' />
@@ -62,7 +62,7 @@ const CyrptoChart = () => {
           domainPadding={{ x: 25 }}
           scale={{ x: 'time' }}
         >
-          <VictoryAxis tickFormat={(t) => `${t.getDate()}/${t.getMonth()}`} />
+          <VictoryAxis tickFormat={(t) => `${t.getFullYear().toString().slice(-2)}/${t.getMonth()}/${t.getDate()}`} />
           <VictoryAxis dependentAxis />
           <VictoryCandlestick
             candleColors={{ positive: 'blue', negative: '#c43a31' }}
