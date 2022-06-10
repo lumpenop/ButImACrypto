@@ -7,16 +7,38 @@
   background-color: colors.$WHITE;
   border-radius: 4px;
 
-  .coinPrice {
-    padding-right: 12px;
-    font-size: 24px;
-  }
+  .infoContainer {
+    padding: 24px;
 
-  .rises {
-    color: colors.$RED;
-  }
+    .coinName {
+      margin-bottom: 16px;
+      font-size: 24px;
+    }
 
-  .fall {
-    color: colors.$APP_BACK_BLUE;
+    .coinPrice {
+      padding-right: 12px;
+      font-size: 24px;
+    }
+
+    .detailInfo {
+      margin-top: 12px;
+
+      div {
+        display: inline-block;
+        margin-right: 12px;
+
+        span {
+          color: colors.$GRAY9;
+        }
+      }
+    }
+
+    .rises {
+      color: colors.$RED;
+    }
+
+    .fall {
+      color: colors.$APP_BACK_BLUE;
+    }
   }
 }
