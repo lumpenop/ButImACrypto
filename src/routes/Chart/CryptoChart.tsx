@@ -65,9 +65,9 @@ const CyrptoChart = () => {
           <VictoryAxis tickFormat={(t) => `${t.getFullYear().toString().slice(-2)}/${t.getMonth()}/${t.getDate()}`} />
           <VictoryAxis dependentAxis />
           <VictoryCandlestick
-            candleColors={{ positive: 'blue', negative: '#c43a31' }}
+            candleColors={{ positive: '#007aff', negative: '#dc495c' }}
             data={data}
-            style={{ data: { stroke: ({ datum }) => (datum.close > datum.open ? 'blue' : '#c43a31') } }}
+            style={{ data: { stroke: ({ datum }) => (datum.close > datum.open ? '#007aff' : '#dc495c') } }}
           />
         </VictoryChart>
       )}
