@@ -1,21 +1,43 @@
 import styles from './view.module.scss'
-import { cx } from 'styles'
 
-import { useState, MouseEvent } from 'react'
+import { useEffect, useState } from 'react'
+
+import { getData } from 'services/crawler'
 
 const menuList = [1, 2, 3]
+
+let setSliding: NodeJS.Timer
 const View = () => {
-  const [isClicked, setIsClicked] = useState(false)
+  const [clicked, setClicked] = useState(0)
   const menuSliding = () => {
-    setIsClicked(true)
+    setClicked((prev) => {
+      if (prev === menuList.length - 1) return 0
+      return prev + 1
+    })
   }
+
+  const buttonSlidingClick = () => {
+    clearInterval(setSliding)
+    menuSliding()
+    setSliding = setInterval(menuSliding, 1700)
+  }
+
+  useEffect(() => {
+    setSliding = setInterval(menuSliding, 1700)
+    return () => clearInterval(setSliding)
+    getData()
+  }, [])
+
   return (
     <div className={styles.view}>
-      <ul className={cx(styles.menuListContainer, { [styles.move]: isClicked })}>
-        {menuList.map((item, idx) => {
+      <ul
+        className={styles.menuListContainer}
+        style={{ transform: `translateY(${-140 * clicked}px)`, transition: '0.7s' }}
+      >
+        {menuList.map((item) => {
           return (
             <li className={styles.menuList} key={item}>
-              <button type='button' onClick={menuSliding} value={idx}>
+              <button type='button' onClick={buttonSlidingClick}>
                 {item}
               </button>
             </li>
