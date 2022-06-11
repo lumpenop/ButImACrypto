@@ -9,6 +9,7 @@ export interface ICoin {
       volume_24h: number
       percent_change_24h: number
       percent_change_7d: number
+      market_cap_change_24h: number
     }
   }
 }
@@ -19,4 +20,5 @@ export interface IRefinedData {
   coinPercentChange24h: number
   coinMarketCap: number
   coinVolume24h: number
+  marketCapChange24h: number
 }
