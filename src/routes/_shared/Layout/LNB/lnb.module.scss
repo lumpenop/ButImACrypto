@@ -16,11 +16,12 @@
       padding: 16px 28px;
       font-size: 20px;
 
-      .lnbIconBox {
+      .lnbBox {
         display: inline-flex;
 
-        span {
+        .link {
           color: colors.$GRAY3;
+          text-decoration: none;
 
           &.selected {
             color: colors.$APP_BACK_BLUE;
