@@ -9,8 +9,6 @@ const ALL_LIST_URL = 'https://api.coinpaprika.com/v1/tickers?quotes=KRW'
 const ALL_BIT_URL = `https://poloniex.com/public?command=returnChartData&currencyPair=BTC
 _ETH&start=${monthAgo}&end=9999999999&period=14400`
 
-const url = 'https://api.binance.com/api/v3/ticker/price'
-
 const options = { headers: { Accept: 'application/json' } }
 
 export const getAllCoinInfo = () => {
@@ -30,12 +28,13 @@ export const getAllCoinInfo = () => {
           percent_change_24h: percentChange24h,
           market_cap: marketCap,
           volume_24h: volume24h,
+          market_cap_change_24h: marketCapChange24h,
         } = item.quotes.KRW
         const coinPrice = new BigNumber(price).toNumber().toFixed(2)
         const coinPercentChange24h = new BigNumber(percentChange24h).toNumber().toFixed(2)
         const coinMarketCap = new BigNumber(marketCap).toNumber().toFixed(2)
         const coinVolume24h = new BigNumber(volume24h).toNumber().toFixed(2)
-        return { name: item.name, coinPrice, coinPercentChange24h, coinMarketCap, coinVolume24h }
+        return { name: item.name, coinPrice, coinPercentChange24h, coinMarketCap, coinVolume24h, marketCapChange24h }
       })
       return refinedData
       // const krwCoinList = allCoinList.filter((item: ICoin) => item.market.includes('KRW'))
@@ -77,7 +76,6 @@ export const getBitData = () => {
 
     const chartData = result.reduce((acc: Acc[], cur: ResponseData) => {
       const date: Date = new Date(cur.date * 1000)
-
       const chartObj = { x: date, open: cur.open, close: cur.close, high: cur.high, low: cur.low }
       acc.push(chartObj)
       return acc

@@ -27,7 +27,7 @@ const LnbMenuList = ({ item, value }: Props) => {
         <div className={styles.lnbBox}>
           <LnbIcon item={item} className={cx(styles.lnbIcon, { [styles.selected]: selectedList === String(value) })} />
           <Link
-            to={`${item.toLowerCase()}`}
+            to={item === 'Dashboard' ? '/' : `${item.toLowerCase()}`}
             className={cx(styles.link, { [styles.selected]: selectedList === String(value) })}
           >
             {item}

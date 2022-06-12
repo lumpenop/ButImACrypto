@@ -50,6 +50,7 @@ const Billboard = () => {
           return (
             <li className={styles.menuList} key={item}>
               <button type='button' onClick={buttonSlidingClick}>
+                {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
                 <img className={styles.viewImage} src={IMAGES[tag]} alt={`coin image ${idx + 1}`} />
               </button>
             </li>

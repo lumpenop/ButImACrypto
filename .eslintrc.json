@@ -5,6 +5,7 @@
     "jasmine": true,
     "jest": true
   },
+  "plugins": ["unused-imports"],
   "settings": {
     "import/extensions": [".js", ".jsx", ".ts", ".tsx"],
     "import/resolver": {

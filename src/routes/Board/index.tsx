@@ -1,4 +1,7 @@
 import styles from './board.module.scss'
+import { useState, MouseEvent } from 'react'
+import ModalPortal from './Modal/Portal'
+import Modal from './Modal'
 
 const head = ['No.', '아이디', '제목', '날짜', '조회수']
 const body = [
@@ -6,9 +9,17 @@ const body = [
   { num: 2, id: 'id2', subject: 'subject2', date: 'date2', count: 2 },
 ]
 const Board = () => {
+  const [isModal, setIsModal] = useState(false)
+
+  const handleModal = (event: MouseEvent) => {
+    setIsModal((prev) => !prev)
+  }
   return (
     <div className={styles.tableContainer}>
-      <button type='button'>글쓰기</button>
+      <button type='button' onClick={handleModal}>
+        글쓰기
+      </button>
+      <ModalPortal>{isModal && <Modal />}</ModalPortal>
       <div className={styles.tableBox}>
         <table className={styles.table}>
           <thead>
