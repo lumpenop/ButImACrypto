@@ -1,9 +1,8 @@
-import { useState } from 'react'
 import styles from './lnb.module.scss'
 
 import LnbMenuList from './LnbMenuList'
 
-const lnbMenu = ['Dashboard', 'MyStock', 'Analysis', 'Market', 'Portfolio', 'Settings']
+const lnbMenu = ['Dashboard', 'Board', 'Analysis', 'Market', 'Portfolio', 'Settings']
 
 const LNB = () => {
   return (

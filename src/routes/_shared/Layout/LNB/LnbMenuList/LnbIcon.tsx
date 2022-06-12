@@ -1,8 +1,4 @@
-import styles from '../lnb.module.scss'
-import { cx } from 'styles'
-
 import { DashboardIcon, MyStockIcon, AnalysisIcon, MarketIcon, PortfolioIcon, SettingsIcon } from 'assets'
-import { useEffect } from 'react'
 
 interface Props {
   item: string
@@ -12,7 +8,7 @@ interface Props {
 const LnbIcon = ({ item, className }: Props) => {
   const tagIcon = {
     Dashboard: <DashboardIcon className={className} />,
-    MyStock: <MyStockIcon className={className} />,
+    Board: <MyStockIcon className={className} />,
     Analysis: <AnalysisIcon className={className} />,
     Market: <MarketIcon className={className} />,
     Portfolio: <PortfolioIcon className={className} />,

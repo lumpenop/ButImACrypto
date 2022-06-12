@@ -1,16 +1,15 @@
 import styles from './dashboard.module.scss'
-import Chart from '../Chart'
-import View from './View'
-import ChartInfo from '../Chart/ChartInfo'
+import Chart from './Chart'
+import Billboard from './Billboard'
+import ChartInfo from './Chart/ChartInfo'
 
 const Dashboard = () => {
   return (
     <div className={styles.sectionView}>
       <div className={styles.sectionContainer}>
-        <View />
+        <Billboard />
         <ChartInfo />
         <Chart />
-        <View />
       </div>
     </div>
   )
