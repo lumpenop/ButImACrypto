@@ -1,0 +1,13 @@
+@use '/src/styles/constants/colors';
+
+.lnbContainer {
+  width: 20%;
+  height: 100%;
+
+  .lnb {
+    width: 100%;
+    height: 100%;
+    background-color: colors.$BLACK;
+    border-radius: 0 12px 12px 20px;
+  }
+}

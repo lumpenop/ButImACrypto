@@ -1,7 +1,12 @@
 import styles from './chart.module.scss'
+import CyrptoChart from './CryptoChart'
 
-const Crypto = () => {
-  return <div className={styles.chart}>chart</div>
+const Chart = () => {
+  return (
+    <div className={styles.chartSection}>
+      <CyrptoChart />
+    </div>
+  )
 }
 
-export default Crypto
+export default Chart
