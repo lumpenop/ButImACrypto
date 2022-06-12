@@ -12,16 +12,3 @@
     transform: rotate(359deg);
   }
 }
-
-@mixin animation($delay, $duration, $name) {
-  animation-name: $name;
-  animation-duration: $duration;
-  animation-delay: $delay;
-}
-
-@mixin keyframe($animation_name) {
-  /* stylelint-disable-next-line keyframes-name-pattern */
-  @keyframes #{$animation_name} {
-    @content;
-  }
-}
