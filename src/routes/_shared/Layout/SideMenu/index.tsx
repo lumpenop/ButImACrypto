@@ -31,7 +31,7 @@ const SideMenu = () => {
   )
   useEffect(() => {
     data && setCoinListData(data[selectedCoin])
-  }, [selectedCoin, data])
+  }, [selectedCoin, data, setCoinListData])
 
   return (
     <aside className={styles.sideMenu}>
