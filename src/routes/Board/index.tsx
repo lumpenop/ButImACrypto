@@ -11,7 +11,7 @@ const body = [
 const Board = () => {
   const [isModal, setIsModal] = useState(false)
 
-  const handleModal = (event: MouseEvent) => {
+  const handleModal = () => {
     setIsModal((prev) => !prev)
   }
   return (
