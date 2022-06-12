@@ -1,0 +1,6 @@
+export { ReactComponent as DashboardIcon } from './svgs/dashboard.svg'
+export { ReactComponent as AnalysisIcon } from './svgs/graph.svg'
+export { ReactComponent as MarketIcon } from './svgs/market.svg'
+export { ReactComponent as PortfolioIcon } from './svgs/portfolio.svg'
+export { ReactComponent as SettingsIcon } from './svgs/setting.svg'
+export { ReactComponent as MyStockIcon } from './svgs/transaction.svg'

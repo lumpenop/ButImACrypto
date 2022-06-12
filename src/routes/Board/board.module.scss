@@ -1,0 +1,20 @@
+@use '/src/styles/constants/colors';
+
+.tableContainer {
+  width: 100%;
+  padding: 24px;
+
+  .tableBox {
+    padding: 16px;
+
+    .table {
+      width: 100%;
+
+      th,
+      td {
+        padding: 8px;
+        text-align: center;
+      }
+    }
+  }
+}

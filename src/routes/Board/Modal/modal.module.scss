@@ -1,0 +1,57 @@
+@use '/src/styles/constants/colors';
+
+.modalContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(200, 200, 200, 50%);
+  transform: translate(-50%, -50%);
+
+  .modal {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: 40%;
+    height: 400px;
+    background-color: white;
+    border-radius: 12px;
+    transform: translate(-50%, -50%);
+
+    form {
+      width: 100%;
+      text-align: center;
+    }
+
+    .modalSubject,
+    .modalContent {
+      background-color: aliceblue;
+      border: 0.5px solid colors.$GRAY9;
+      border-radius: 8px;
+    }
+
+    .modalSubmit {
+      width: 54px;
+      height: 37px;
+      margin-left: 12px;
+      color: colors.$WHITE;
+      background-color: colors.$APP_BACK_BLUE;
+      border-radius: 8px;
+    }
+
+    .modalSubject {
+      width: 60%;
+      padding: 8px;
+      margin: 16px auto 8px;
+    }
+
+    .modalContent {
+      width: 80%;
+      height: 300px;
+      padding: 12px;
+      margin: 8px auto;
+      resize: none;
+    }
+  }
+}
