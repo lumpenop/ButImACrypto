@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { createPortal } from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
 import { I18nextProvider } from 'react-i18next'
 import { QueryClient, QueryClientProvider } from 'react-query'
