@@ -1,46 +1,65 @@
-# Getting Started with Create React App
+# But Im a Crypto
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📜 프로젝트 개요
+게시판 기능이 있는 암호화페 거래소 대시보드
 
-## Available Scripts
+## 🔗 프로젝트 배포
 
-In the project directory, you can run:
+## ⚙ 기술 스택
+  <img src="https://img.shields.io/badge/TypeScript-v4.4.2-blue"/>
+  <img src="https://img.shields.io/badge/React-v18.1.0-blue"/>
+  <img src="https://img.shields.io/badge/Redux/toolkit-v1.8.1-blue"/>
+  <img src="https://img.shields.io/badge/React Router Dom-v6.3.0-blue"/>
 
-### `yarn start`
+```
+그 외 추가 라이브러리
+  - "bignumber.js": "^9.0.2"
+  - "dayjs": "^1.11.2"
+  - "react-datepicker": "^4.8.0"
+  - "react-use": "^17.3.2"
+  - "recoil": "^0.7.3-alpha.2"
+  - "store": "^2.0.12"
+  - "victory": "^36.4.0"
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 🎄 Router 구조
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🎄 프로젝트 트리
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📍 Getting Started / 어떻게 시작하나요?
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+0. 빈 폴더 생성
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Repository 클론
+```sh
+$ git clone [폴더명]
+```
 
-### `yarn eject`
+2. Dependencies 설치
+```sh
+$ yarn install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+3. Run 실행
+```sh
+$ yarn start
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+※ **.env 키 추가**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. .env 파일을 .env.copy 파일과 동일한 위치에 생성
+2. .env 파일에 .env.copy 파일의 내용을 붙여넣고 ID, PW만 본인의 것으로 작성
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 🖼 실행 이미지
 
-## Learn More
+## 🔧구현 방법
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🔥 어려웠던 점
+
+
+## 💎 현재 이슈
+머리부터 발끝까지 hot issue 핫!
