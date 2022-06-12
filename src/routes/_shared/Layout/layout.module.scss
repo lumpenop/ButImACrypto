@@ -2,19 +2,20 @@
 
 .dashboardContainer {
   box-sizing: border-box;
-  width: 98vw;
+  width: 90vw;
   min-width: 1024px;
   // max-width: 1300px;
-  height: 96vh;
+  height: 92vh;
   min-height: 800px;
   // max-height: 740px;
-  margin: 2vh auto;
+  margin: 4vh auto;
   overflow: hidden;
   background-color: colors.$MAIN_BACK_BLUE;
   border-radius: 20px;
 
   .main {
     display: flex;
+    justify-content: space-between;
     width: 100%;
     height: calc(100% - 64px);
   }

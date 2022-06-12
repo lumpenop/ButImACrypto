@@ -46,7 +46,7 @@
     border-radius: 12px 0 0;
 
     .coinListContainer {
-      padding: 16px 12px 0;
+      padding: 16px 16px 0 0;
 
       .coinList {
         color: colors.$GRAY3;
@@ -59,6 +59,7 @@
         .coinInfo {
           display: flex;
           justify-content: space-around;
+          width: 340px;
 
           span {
             align-items: center;
@@ -81,7 +82,7 @@
           }
 
           .rises {
-            color: colors.$RED;
+            color: #dc495c;
           }
 
           .fall {
