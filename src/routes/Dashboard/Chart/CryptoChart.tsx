@@ -48,8 +48,8 @@ const CyrptoChart = () => {
     setChartBoxSize(boxSize)
   }
   return (
-    <div className={styles.chart} ref={chartBoxRef}>
-      BTC/ETH
+    <section className={styles.chart} ref={chartBoxRef}>
+      <h1>BTC/ETH</h1>
       {isLoading && (
         <div className={styles.spinnerBox}>
           <Audio width='50' height='50' color='#c8553d' aria-label='loading' />
@@ -71,7 +71,7 @@ const CyrptoChart = () => {
           />
         </VictoryChart>
       )}
-    </div>
+    </section>
   )
 }
 

@@ -27,19 +27,21 @@ const ChartInfo = () => {
     <section className={styles.chartInfo}>
       <div className={styles.infoContainer}>
         <h1 className={styles.coinName}>{coinListData.name}</h1>
-        <span className={cx(styles.coinPrice, checkChange(coinPercentChange24h))}>{coinPrice}</span>
+        <span className={cx(styles.coinPrice, checkChange(coinPercentChange24h))}>
+          {Number(coinPrice).toLocaleString()}
+        </span>
         <span className={checkChange(coinPercentChange24h)}>{coinPercentChange24h}%</span>
-        <p className={styles.detailInfo}>
+        <div className={styles.detailInfo}>
           <div>
             <span>거래량</span> {(coinVolume24h / 1000000000000).toFixed(2)}T
           </div>
           <div>
-            <span>전일가</span> {floorPrevPrice}
+            <span>전일가</span> {Number(floorPrevPrice).toLocaleString()}
           </div>
           <div className={checkChange(marketCapGap)}>
-            <span>시총</span> {coinMarketCap}
+            <span>시총</span> {Number(coinMarketCap).toLocaleString()}
           </div>
-        </p>
+        </div>
       </div>
     </section>
   )
