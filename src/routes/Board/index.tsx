@@ -1,5 +1,5 @@
 import styles from './board.module.scss'
-import { useState, MouseEvent } from 'react'
+import { useState } from 'react'
 import ModalPortal from './Modal/Portal'
 import Modal from './Modal'
 
@@ -11,7 +11,7 @@ const body = [
 const Board = () => {
   const [isModal, setIsModal] = useState(false)
 
-  const handleModal = (event: MouseEvent) => {
+  const handleModal = () => {
     setIsModal((prev) => !prev)
   }
   return (
