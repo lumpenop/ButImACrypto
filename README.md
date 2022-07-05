@@ -4,7 +4,7 @@
 게시판 기능이 있는 암호화페 거래소 대시보드
 
 ## 🔗 프로젝트 배포
-https://dashing-figolla-51af2e.netlify.app/
+https://but-im-a-creep.netlify.app/
 
 ## ⚙ 기술 스택
   <img src="https://img.shields.io/badge/TypeScript-v4.4.2-blue"/>
