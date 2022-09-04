@@ -2,11 +2,16 @@ import ModalPortal from './Portal'
 
 import styles from './modal.module.scss'
 
-import { useState, MouseEvent, ChangeEvent } from 'react'
+import { useState, MouseEvent, ChangeEvent, Dispatch, SetStateAction } from 'react'
 
 import store from 'store'
 
-const Modal = () => {
+interface Props {
+  setIsModal: Dispatch<SetStateAction<boolean>>
+}
+
+
+const Modal = ({setIsModal}: Props) => {
   const [subject, setSubject] = useState('')
   const [content, setContent] = useState('')
   const submitClick = (event: MouseEvent<HTMLButtonElement>) => {

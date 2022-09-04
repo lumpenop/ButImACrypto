@@ -1,5 +1,5 @@
 import styles from './board.module.scss'
-import { useState } from 'react'
+import { useState, MouseEvent } from 'react'
 import ModalPortal from './Modal/Portal'
 import Modal from './Modal'
 
@@ -11,15 +11,19 @@ const body = [
 const Board = () => {
   const [isModal, setIsModal] = useState(false)
 
-  const handleModal = () => {
+  const handleModal = (event: MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation()
     setIsModal((prev) => !prev)
+  }
+  const clickNotModal = () => {
+    setIsModal(false)
   }
   return (
     <div className={styles.tableContainer}>
-      <button type='button' onClick={handleModal}>
+      <button className={styles.writeButton} type='button' onClick={handleModal}>
         글쓰기
       </button>
-      <ModalPortal>{isModal && <Modal />}</ModalPortal>
+      <ModalPortal>{isModal && <Modal setIsModal={setIsModal} />}</ModalPortal>
       <div className={styles.tableBox}>
         <table className={styles.table}>
           <thead>
