@@ -2,7 +2,7 @@ import ModalPortal from './Portal'
 
 import styles from './modal.module.scss'
 
-import {useState, MouseEvent, ChangeEvent, Dispatch, SetStateAction, useRef, useEffect} from 'react'
+import { useState, MouseEvent, ChangeEvent, Dispatch, SetStateAction, useRef, useEffect } from 'react'
 
 import store from 'store'
 
@@ -11,7 +11,7 @@ interface Props {
   isModal: boolean
 }
 
-const Modal = ({setIsModal, isModal}: Props) => {
+const Modal = ({ setIsModal, isModal }: Props) => {
   const modalRef = useRef<HTMLDivElement>(null)
   const [subject, setSubject] = useState('')
   const [content, setContent] = useState('')
@@ -27,30 +27,24 @@ const Modal = ({setIsModal, isModal}: Props) => {
     setContent(event.currentTarget.value)
   }
 
-  const modalClose = () => {
-    setIsModal(false)
-  }
-
   useEffect(() => {
     const clickOutside = (e: any) => {
-      // 모달이 열려 있고 모달의 바깥쪽을 눌렀을 때 창 닫기
-      if (isModal && modalRef.current && !modalRef.current.contains(e.currentTarget)) {
-        setIsModal(false);
+      if (isModal && !modalRef.current?.contains(e.target)) {
+        setIsModal(false)
       }
-    };
+    }
 
-    document.addEventListener("mousedown", clickOutside);
+    document.addEventListener('mousedown', clickOutside)
 
     return () => {
       // Cleanup the event listener
-      document.removeEventListener("mousedown", clickOutside);
-    };
-  }, [isModal]);
+      document.removeEventListener('mousedown', clickOutside)
+    }
+  }, [isModal])
   return (
     <ModalPortal>
-      <div className={styles.modalContainer} ref={modalRef}>
-        <div className={styles.modal}>
-          <button type='button' onClick={modalClose}>X</button>
+      <div className={styles.modalContainer}>
+        <div className={styles.modal} ref={modalRef}>
           <form>
             <input
               onChange={inputChange}
