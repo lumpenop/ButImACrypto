@@ -1,5 +1,5 @@
 import styles from './board.module.scss'
-import {useState, MouseEvent, useRef, RefObject} from 'react'
+import { useState, MouseEvent, useRef, RefObject } from 'react'
 import ModalPortal from './Modal/Portal'
 import Modal from './Modal'
 
@@ -34,9 +34,9 @@ const Board = () => {
             </tr>
           </thead>
           <tbody>
-            {body.map((item) => {
+            {body.map((item, index) => {
               return (
-                <tr key={item.date}>
+                <tr key={item.date + index}>
                   <td>{item.num}</td>
                   <td>{item.id}</td>
                   <td>{item.subject}</td>

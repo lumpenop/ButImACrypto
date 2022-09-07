@@ -12,7 +12,11 @@
   }
 
   .tableBox {
+    margin-top: 10px;
     padding: 16px;
+    border: #5856d6 solid 1px;
+    border-radius: 4px;
+    background-color: white;
 
     .table {
       width: 100%;
@@ -20,8 +24,9 @@
       th,
       td {
         padding: 8px;
-        text-align: center;
+        text-align: left;
       }
+
     }
   }
 }

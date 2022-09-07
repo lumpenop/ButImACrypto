@@ -33,11 +33,8 @@ const Modal = ({ setIsModal, isModal }: Props) => {
         setIsModal(false)
       }
     }
-
     document.addEventListener('mousedown', clickOutside)
-
     return () => {
-      // Cleanup the event listener
       document.removeEventListener('mousedown', clickOutside)
     }
   }, [isModal])
