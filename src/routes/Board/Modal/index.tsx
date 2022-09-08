@@ -2,7 +2,7 @@ import ModalPortal from './Portal'
 
 import styles from './modal.module.scss'
 
-import { useState, MouseEvent, ChangeEvent, Dispatch, SetStateAction, useRef, useEffect } from 'react'
+import { useState, FormEvent, ChangeEvent, Dispatch, SetStateAction, useRef, useEffect } from 'react'
 
 import store from 'store'
 
@@ -18,7 +18,7 @@ const Modal = ({ setIsModal, isModal, setBodyItems }: Props) => {
   const modalRef = useRef<HTMLDivElement>(null)
   const [subject, setSubject] = useState('')
   const [content, setContent] = useState('')
-  const submitClick = (event: MouseEvent<HTMLButtonElement>) => {
+  const submitClick = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     store.set('board', { subject, content })
   }
@@ -45,7 +45,7 @@ const Modal = ({ setIsModal, isModal, setBodyItems }: Props) => {
     <ModalPortal>
       <div className={styles.modalContainer}>
         <div className={styles.modal} ref={modalRef}>
-          <form>
+          <form onSubmit={submitClick}>
             <input
               onChange={inputChange}
               placeholder='제목'
@@ -53,7 +53,7 @@ const Modal = ({ setIsModal, isModal, setBodyItems }: Props) => {
               type='text'
               value={subject}
             />
-            <button className={styles.modalSubmit} onClick={submitClick} type='submit'>
+            <button className={styles.modalSubmit} type='submit'>
               작성완료
             </button>
             <textarea onChange={textareaChange} placeholder='내용' className={styles.modalContent} value={content} />

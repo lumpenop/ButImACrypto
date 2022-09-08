@@ -1,6 +1,8 @@
 import styles from './board.module.scss'
-import { useState, MouseEvent, useRef, RefObject } from 'react'
+import { useState, MouseEvent, useRef, RefObject, useEffect } from 'react'
 import Modal from './Modal'
+
+import store from 'store'
 
 const head = ['No.', '아이디', '제목', '날짜', '조회수']
 const body = [
@@ -19,6 +21,11 @@ export type BodyType = {
 const Board = () => {
   const [isModal, setIsModal] = useState(false)
   const [bodyItems, setBodyItems] = useState<BodyType>(body)
+
+  // store get 'board' 후에 modal/index에서 const board = get('board'), set('board', {...board, subject: subject, content: content })
+  useEffect(() => {
+    store.get('borad')
+  })
 
   const handleModal = (event: MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation()
@@ -44,11 +51,11 @@ const Board = () => {
             {bodyItems.map((item, index) => {
               return (
                 <tr key={item.date + index}>
-                  <td>{item.num}</td>
-                  <td>{item.id}</td>
+                  <td>{index + 1}</td>
+                  <td>{`${'id' + (index + 1)}`}</td>
                   <td>{item.subject}</td>
-                  <td>{item.date}</td>
-                  <td>{item.count}</td>
+                  <td>{'date'}</td>
+                  <td>{index}</td>
                 </tr>
               )
             })}
