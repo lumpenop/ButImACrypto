@@ -6,12 +6,15 @@ import { useState, MouseEvent, ChangeEvent, Dispatch, SetStateAction, useRef, us
 
 import store from 'store'
 
+import { BodyType } from 'routes/Board'
+
 interface Props {
   setIsModal: Dispatch<SetStateAction<boolean>>
   isModal: boolean
+  setBodyItems: Dispatch<SetStateAction<BodyType>>
 }
 
-const Modal = ({ setIsModal, isModal }: Props) => {
+const Modal = ({ setIsModal, isModal, setBodyItems }: Props) => {
   const modalRef = useRef<HTMLDivElement>(null)
   const [subject, setSubject] = useState('')
   const [content, setContent] = useState('')

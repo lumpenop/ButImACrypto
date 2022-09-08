@@ -1,6 +1,5 @@
 import styles from './board.module.scss'
 import { useState, MouseEvent, useRef, RefObject } from 'react'
-import ModalPortal from './Modal/Portal'
 import Modal from './Modal'
 
 const head = ['No.', '아이디', '제목', '날짜', '조회수']
@@ -8,22 +7,30 @@ const body = [
   { num: 1, id: 'id', subject: 'subject', date: 'date', count: 1 },
   { num: 2, id: 'id2', subject: 'subject2', date: 'date2', count: 2 },
 ]
+
+export type BodyType = {
+  num: number
+  id: string
+  subject: string
+  date: string
+  count: number
+}[]
+
 const Board = () => {
   const [isModal, setIsModal] = useState(false)
+  const [bodyItems, setBodyItems] = useState<BodyType>(body)
 
   const handleModal = (event: MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation()
     setIsModal((prev) => !prev)
   }
-  const clickNotModal = () => {
-    setIsModal(false)
-  }
+
   return (
     <div className={styles.tableContainer}>
       <button className={styles.writeButton} type='button' onClick={handleModal}>
         글쓰기
       </button>
-      {isModal && <Modal setIsModal={setIsModal} isModal={isModal} />}
+      {isModal && <Modal setIsModal={setIsModal} isModal={isModal} setBodyItems={setBodyItems} />}
       <div className={styles.tableBox}>
         <table className={styles.table}>
           <thead>
@@ -34,7 +41,7 @@ const Board = () => {
             </tr>
           </thead>
           <tbody>
-            {body.map((item, index) => {
+            {bodyItems.map((item, index) => {
               return (
                 <tr key={item.date + index}>
                   <td>{item.num}</td>
