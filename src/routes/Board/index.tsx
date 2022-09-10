@@ -24,8 +24,8 @@ const Board = () => {
 
   // store get 'board' 후에 modal/index에서 const board = get('board'), set('board', {...board, subject: subject, content: content })
   useEffect(() => {
-    store.get('borad')
-  })
+    console.log(store.get('board'))
+  }, [])
 
   const handleModal = (event: MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation()
@@ -50,13 +50,14 @@ const Board = () => {
           <tbody>
             {bodyItems.map((item, index) => {
               return (
-                <tr key={item.date + index}>
-                  <td>{index + 1}</td>
-                  <td>{`${'id' + (index + 1)}`}</td>
-                  <td>{item.subject}</td>
-                  <td>{'date'}</td>
-                  <td>{index}</td>
-                </tr>
+                // <tr key={item.date + index}>
+                //   <td>{index + 1}</td>
+                //   <td>{`${'id' + (index + 1)}`}</td>
+                //   <td>{item.subject}</td>
+                //   <td>{'date'}</td>
+                //   <td>{index}</td>
+                // </tr>
+                <li key={item.num + index}>hi</li>
               )
             })}
           </tbody>
