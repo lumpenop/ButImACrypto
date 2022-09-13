@@ -10,21 +10,23 @@ const body = [
   { num: 2, id: 'id2', subject: 'subject2', date: 'date2', count: 2 },
 ]
 
-export type BodyType = {
-  num: number
-  id: string
-  subject: string
-  date: string
-  count: number
-}[]
+export type BodyType =
+  | {
+      num: number
+      id: string
+      subject: string
+      date: string
+      count: number
+    }[]
+  | null
 
 const Board = () => {
   const [isModal, setIsModal] = useState(false)
-  const [bodyItems, setBodyItems] = useState<BodyType>(body)
+  const [bodyItems, setBodyItems] = useState<BodyType | null>(null)
 
   // store get 'board' 후에 modal/index에서 const board = get('board'), set('board', {...board, subject: subject, content: content })
   useEffect(() => {
-    console.log(store.get('board'))
+    setBodyItems(store.get('board'))
   }, [])
 
   const handleModal = (event: MouseEvent<HTMLButtonElement>) => {
@@ -48,7 +50,7 @@ const Board = () => {
             </tr>
           </thead>
           <tbody>
-            {bodyItems.map((item, index) => {
+            {bodyItems?.map((item, index) => {
               return (
                 // <tr key={item.date + index}>
                 //   <td>{index + 1}</td>
