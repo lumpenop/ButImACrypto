@@ -1,14 +1,10 @@
 import styles from './board.module.scss'
-import { useState, MouseEvent, useRef, RefObject, useEffect } from 'react'
+import { useState, MouseEvent, useEffect } from 'react'
 import Modal from './Modal'
 
 import store from 'store'
 
 const head = ['No.', '아이디', '제목', '날짜', '조회수']
-const body = [
-  { num: 1, id: 'id', subject: 'subject', date: 'date', count: 1 },
-  { num: 2, id: 'id2', subject: 'subject2', date: 'date2', count: 2 },
-]
 
 export type BodyType =
   | {
@@ -52,14 +48,14 @@ const Board = () => {
           <tbody>
             {bodyItems?.map((item, index) => {
               return (
-                // <tr key={item.date + index}>
-                //   <td>{index + 1}</td>
-                //   <td>{`${'id' + (index + 1)}`}</td>
-                //   <td>{item.subject}</td>
-                //   <td>{'date'}</td>
-                //   <td>{index}</td>
-                // </tr>
-                <li key={item.num + index}>hi</li>
+                <tr key={item.date + index}>
+                  <td>{index + 1}</td>
+                  <td>{`id${index + 1}`}</td>
+                  <td>{item.subject}</td>
+                  <td>{item.date}</td>
+                  <td>{index}</td>
+                </tr>
+                // <li key={item.num + index}>hi</li>
               )
             })}
           </tbody>
